@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omkar Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at 20% 20%, #300000, #0a0000);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== Glow Background Blobs ===== */
+.blob {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: red;
+  filter: blur(120px);
+  opacity: 0.2;
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
+}
+
+.blob:nth-child(1) { top: 10%; left: 10%; }
+.blob:nth-child(2) { bottom: 10%; right: 10%; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+/* ===== Navbar ===== */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  background: rgba(255,0,0,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: red;
+  text-shadow: 0 0 10px red;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 100px 10%;
+  min-height: 100vh;
+}
+
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hero-text h1 {
+  font-size: 50px;
+  color: red;
+}
+
+.hero-text p {
+  margin: 20px 0;
+  max-width: 500px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255,0,0,0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: red;
+  box-shadow: 0 0 20px red;
+}
+
+/* ===== Glass Card ===== */
+.glass {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== Anime Card ===== */
+.anime-card {
+  padding: 20px;
+  box-shadow: 0 0 40px rgba(255,0,0,0.3);
+  transition: 0.4s;
+  animation: float 6s infinite ease-in-out;
+}
+
+.anime-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 60px red;
+}
+
+.anime-card img {
+  width: 250px;
+  border-radius: 15px;
+}
+
+/* ===== Cards ===== */
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 250px;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px red;
+}
+
+/* ===== Orb Animation ===== */
+.orb {
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, red, transparent);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 4s infinite ease-in-out;
+}
+
+/* ===== Responsive ===== */
+@media(max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="blob"></div>
+<div class="blob"></div>
+
+<nav>
+  <h2>Omkar</h2>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h1>Hi, I'm Omkar</h1>
+    <p>AI builder & web developer creating futuristic experiences with premium UI design.</p>
+    <button class="btn" onclick="scrollToSection('projects')">View Work</button>
+    <button class="btn" onclick="scrollToSection('contact')">Contact</button>
+  </div>
+
+  <div class="glass anime-card">
+    <img src="https://i.imgur.com/6VBx3io.png" alt="anime boy">
+  </div>
+
+  <div class="orb"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I create high-end AI-powered web apps with modern UI/UX and smooth animations.</p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="card-container">
+    <div class="card glass">AI Chat App</div>
+    <div class="card glass">Portfolio Website</div>
+    <div class="card glass">Startup Landing Page</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Services</h2>
+  <div class="card-container">
+    <div class="card glass">Web Development</div>
+    <div class="card glass">UI/UX Design</div>
+    <div class="card glass">AI Integration</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: omkar@example.com</p>
+</section>
+
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
